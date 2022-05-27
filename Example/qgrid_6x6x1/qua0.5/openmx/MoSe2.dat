@@ -1,0 +1,107 @@
+#
+#      File Name      
+#
+
+System.CurrrentDirectory         ./    # default=./
+System.Name                      MoSe2
+level.of.stdout                   1    # default=1 (1-3)
+level.of.fileout                  1    # default=1 (1-3)
+DATA.PATH                         /home/duansr/bin/openmx3.8/DFT_DATA13
+
+
+#
+# Definition of Atomic Species
+#
+
+Species.Number       2
+<Definition.of.Atomic.Species
+Mo Mo7.0-s2p2d1 Mo_PBE13
+Se Se8.0-s3p3d2 Se_PBE13
+Definition.of.Atomic.Species>
+
+#
+# Atoms
+#
+
+Atoms.Number        3
+Atoms.SpeciesAndCoordinates.Unit  FRAC # Ang|AU
+<Atoms.SpeciesAndCoordinates         
+   1   Mo    0.33333333333333    0.33333333333333    0.50000000000000     7.0     7.0
+   2   Se    0.66666666666667    0.66666666666667    0.56320000000000     3.0     3.0
+   3   Se    0.66666666666667    0.66666666666667    0.43680000000000     3.0     3.0
+Atoms.SpeciesAndCoordinates>
+Atoms.UnitVectors.Unit  Ang
+<Atoms.UnitVectors
+  3.303982612258224   0.000000000000000   0.000000000000000 
+  1.651991306110470   2.861332875888456   0.000000000000000 
+  0.000000000000000   0.000000000000000  26.485762110339138 
+Atoms.UnitVectors>
+
+#
+# SCF or Electronic System
+#
+
+scf.XcType                 GGA-PBE      # LDA|LSDA-CA|LSDA-PW
+scf.SpinPolarization       NC         # On|Off
+scf.ElectronicTemperature  300.0       # default=300 (K)
+scf.energycutoff           400.0       # default=150 (Ry)
+scf.maxIter                10000          # default=40
+scf.EigenvalueSolver       Band     # DC|Cluster|Band
+scf.Kgrid                  9 9 1       # means 4x4x4
+scf.Mixing.Type           rmm-diis     # Simple|Rmm-Diis|Gr-Pulay
+scf.Init.Mixing.Weight     0.3       # default=0.30 
+scf.Min.Mixing.Weight      0.001       # default=0.001 
+scf.Max.Mixing.Weight      0.40       # default=0.40 
+scf.Mixing.History          30          # default=5
+scf.Mixing.StartPulay       5          # default=6
+scf.criterion             1.0e-8       # default=1.0e-6 (Hartree) 
+scf.Electric.Field      0.0 0.0 0.0   # default=0.0 0.0 0.0 (GV/m) 
+scf.SpinOrbit.Coupling     on
+# restart using *.rst
+#
+
+scf.restart    off
+HS.fileout                   on    # on|off, default=off
+
+#
+# MD or Geometry Optimization
+#
+#MD.Type                    OptC4
+MD.Opt.DIIS.History         3     # default=3
+MD.Opt.StartDIIS            5     # default=5
+MD.Opt.EveryDIIS            200 # default=200
+MD.maxIter                  100  # default=1
+MD.Opt.criterion 1e-4           # default=0.0003 (Hartree/Bohr)
+
+#<MD.Fixed.XYZ
+#1 0 0 0
+#2 0 0 1
+#3 0 0 1
+#MD.Fixed.XYZ>
+#Band.dispersion              on        # on|off, default=off
+#Band.Nkpath                2
+#<Band.kpath                
+#120  -0.3333333 -0.3333333 0    0      0     0        K G
+#120   0          0         0    0.3333333 0.3333333   0  G K
+#Band.kpath>
+#
+# MO output
+#
+
+MO.fileout                   off       # on|off, default=off
+num.HOMOs                     1        # default=1
+num.LUMOs                     1        # default=1
+
+#
+# DOS and PDOS
+#
+
+#Dos.fileout                  off       # on|off, default=off
+#Dos.Erange              -10.0  10.0    # default = -20 20 
+#Dos.Kgrid                 1  1  1      # default = Kgrid1 Kgrid2 Kgrid3
+scf.fixed.grid     0.00000000000000    0.00000000000000    0.00000000000000
+
+
+
+
+#MD.Current.Iter  10
