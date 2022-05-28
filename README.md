@@ -7,7 +7,7 @@ To construct a Hamiltonian with Electron-phonon coupling, one should use Caesar 
 
 ## Requirements
 
-The following package are required:
+The following packages are required:
 
 1. Hop (https://github.com/Hop-developers/Hop.jl): construct Hamiltonian based on nonorthogonal localized orbitals (NoLO) as implemented in OpenMx.
 2. Caesar: perform lattice dynamics calculations using the finite-displacement method and generate possible atomic configurations consistent with the nuclear density arising from phonons.  It is not widely opened yet. Upon a reasonable request, this package shall be available from the author Bartomeu Monserrat (<https://www.msm.cam.ac.uk/people/monserrat>). 
