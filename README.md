@@ -1,6 +1,4 @@
 # EpHam
-Hello everyone, I will propose to Xixun Luo on January 7, 2023.
-
 
 EpHam is a package for interfacing Caesar package with Hop package to construct a Hamiltonian with Electron-phonon coupling from first-principles calculations.
 
